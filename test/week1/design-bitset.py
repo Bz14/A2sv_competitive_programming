@@ -1,29 +1,29 @@
 class Bitset:
 
     def __init__(self, size: int):
-        self.bit = [0 for i in range(size)]
-        self.flipBit = [1 for i in range(size)]
+        self.bitArray = [0 for i in range(size)]
+        self.flipArray = [1 for i in range(size)]
         self.zeroCount = size
         self.oneCount = 0
         self.size = size
 
     def fix(self, idx: int) -> None:
-        if not self.bit[idx]:
+        if not self.bitArray[idx]:
             self.oneCount += 1
             self.zeroCount -= 1
-        self.bit[idx] = 1
-        self.flipBit[idx] = 0
+        self.bitArray[idx] = 1
+        self.flipArray[idx] = 0
 
     def unfix(self, idx: int) -> None:
-        if self.bit[idx]:
+        if self.bitArray[idx]:
             self.oneCount -= 1
             self.zeroCount += 1
-        self.bit[idx] = 0
-        self.flipBit[idx] = 1
+        self.bitArray[idx] = 0
+        self.flipArray[idx] = 1
 
     def flip(self) -> None:
         self.zeroCount , self.oneCount = self.oneCount, self.zeroCount
-        self.bit, self.flipBit = self.flipBit, self.bit
+        self.bitArray, self.flipArray = self.flipArray, self.bitArray
 
     def all(self) -> bool:
         return self.oneCount == self.size
@@ -36,7 +36,7 @@ class Bitset:
 
     def toString(self) -> str:
         res =''
-        for i in self.bit:
+        for i in self.bitArray:
             res += str(i)
         return res
         
