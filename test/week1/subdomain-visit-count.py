@@ -7,8 +7,8 @@ class Solution:
             for i in range(len(arr)):
                 newstr = '.'.join(arr[i:])
                 domainDict[newstr] += int(cost)
-        res = []
+        result = []
         for val in domainDict:
-            res.append(str(domainDict[val]) + " " + val)
-        return res
+            result.append(str(domainDict[val]) + " " + val)
+        return result
         
