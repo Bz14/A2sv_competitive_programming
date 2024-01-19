@@ -5,8 +5,8 @@ class Solution:
         for i in range(len(plants)):
             if plants[i] > capacity:
                 result += 2 * i + 1
-                capacity = refill - plants[i]
+                capacity = refill
             else:
                 result += 1
-                capacity -= plants[i]
+            capacity -= plants[i]
         return result
