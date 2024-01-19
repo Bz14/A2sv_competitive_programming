@@ -1,7 +1,7 @@
 class Solution:
     def freqAlphabets(self, s: str) -> str:
         alpha = {}
-        res = ''
+        res = []
         count = 1
         for i in range(ord('a'), ord('i') + 1):
             alpha[str(count)] = chr(i)
@@ -13,10 +13,10 @@ class Solution:
         i = 0
         while i < len(s):
             if s[i : i + 3] in alpha:
-                res += alpha[s[i: i + 3]]
-                i += 3
+                res.append(alpha[s[i: i + 3]])
+                i += 2
             else:
-                res += alpha[s[i]]
-                i += 1
-        return res
+                res.append(alpha[s[i]])
+            i += 1
+        return ''.join(res)
 
