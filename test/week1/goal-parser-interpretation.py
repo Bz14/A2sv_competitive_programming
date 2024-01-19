@@ -1,11 +1,15 @@
 class Solution:
     def interpret(self, command: str) -> str:
-        res = ''
-        for i in range(len(command)):
+        result = []
+        i = 0
+        while i < len(command):
             if command[i] == 'G':
-                res += 'G'
+                result.append("G")
             elif command[i] == '(' and command[i + 1] == ')':
-                res += 'o'
+                result.append("o")
+                i += 1
             elif command[i] == '(' and command[i + 1] == 'a':
-                res += 'al'
-        return res
+                result.append("al")
+                i += 1
+            i += 1
+        return ''.join(result)
