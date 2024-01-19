@@ -3,15 +3,17 @@ class Solution:
         alpha = {}
         for i in range(len(order)):
             alpha[order[i]] = i
-        for i in range(len(words) - 1):
-            word1 = words[i]
-            word2 = words[i + 1]
-            for j in range(min(len(word1), len(word2))):
-                if alpha[word1[j]] > alpha[word2[j]]:
+        i = 0
+        j = i + 1
+        while i < len(words) and j < len(words):
+            for k in range(min(len(words[i]), len(words[j]))):
+                if alpha[words[i][k]] > alpha[words[j][k]]:
                     return False
-                elif alpha[word1[j]] < alpha[word2[j]]:
+                elif alpha[words[i][k]] < alpha[words[j][k]]:
                     break
             else:
-                if len(word1) > len(word2):
+                if len(words[i]) > len(words[j]):
                     return False
+            i += 1
+            j += 1
         return True
