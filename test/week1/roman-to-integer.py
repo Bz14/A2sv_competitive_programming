@@ -7,10 +7,10 @@ class Solution:
         while i < len(s):
             if s[i: i + 2] in spec:
                 res +=  spec[s[i:i + 2]]
-                i += 2
+                i += 1
             else:
                 res += roman_dict[s[i]]
-                i += 1
+            i += 1
         return res
 
 
