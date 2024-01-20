@@ -1,9 +1,10 @@
 class Solution:
     def addSpaces(self, s: str, spaces: List[int]) -> str:
-        res = ''
+        res = []
         index = 0
         for space in spaces:
-            res += s[index:space] + ' '
+            res.append(s[index:space])
+            res.append(' ')
             index = space
-        res += s[index:]
-        return res
+        res.append(s[index:])
+        return ''.join(res)
