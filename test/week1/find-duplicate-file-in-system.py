@@ -15,9 +15,6 @@ class Solution:
             d[value].append(key)
         res = []
         for k, v in d.items():
-            count = 0
-            for j in v:
-                count +=1
-            if count >= 2:
-                res.append(d[k])
+            if len(v) >= 2:
+                res.append(v)
         return res
