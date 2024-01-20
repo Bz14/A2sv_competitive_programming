@@ -4,11 +4,10 @@ class Solution:
         ans = []
         for x, y in points:
             res[(x ** 2) + (y ** 2)].append([x, y])
-        sorted_dict = dict(sorted(res.items()))
-        for key, values in sorted_dict.items():
-            for value in values:
-                if k == 0:
+        sorted_arr = sorted(res)
+        for key in sorted_arr:
+            for value in res[key]:
+                if len(ans) > k - 1:
                     break
                 ans.append(value)
-                k -= 1
         return ans
