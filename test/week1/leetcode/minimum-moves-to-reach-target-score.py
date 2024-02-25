@@ -5,11 +5,9 @@ class Solution:
             if target % 2 == 0 and maxDoubles > 0:
                 maxDoubles -= 1
                 target //= 2
-                res += 1
             else:
                 target -= 1
-                res += 1
+            res += 1
         if target > 1:
             res += target - 1
         return res
-
