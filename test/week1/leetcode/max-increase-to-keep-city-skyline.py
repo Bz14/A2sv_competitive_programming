@@ -4,13 +4,12 @@ class Solution:
         colMax = []
         n = len(grid)
         res = 0
-        for row in grid:
-            rowMax.append(max(row))
         for i in range(n):
-            check = []
+            maxCol = grid[0][i]
             for j in range(n):
-                check.append(grid[j][i])
-            colMax.append(max(check))
+                maxCol = max(maxCol, grid[j][i])
+            colMax.append(maxCol)
+            rowMax.append(max(grid[i]))
         for i in range(n):
             for j in range(n):
                 res += abs(grid[i][j] - min(rowMax[i], colMax[j]))
