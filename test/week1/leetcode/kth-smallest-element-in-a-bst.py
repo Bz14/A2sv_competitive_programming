@@ -10,9 +10,8 @@ class Solution:
         def traverse(node):
             if not node:
                 return 
-            ans.append(node.val)
             traverse(node.left)
+            ans.append(node.val)
             traverse(node.right)
         traverse(root)
-        ans.sort()
         return ans[k - 1]
