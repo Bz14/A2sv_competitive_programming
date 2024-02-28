@@ -12,7 +12,6 @@ class Solution:
             total = 0
             if node.val >= low and node.val <= high:
                 total += node.val
-            total += traverse(node.left)
-            total += traverse(node.right)
+            total += (traverse(node.left) + traverse(node.right))
             return total
         return traverse(root)
