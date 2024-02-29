@@ -7,14 +7,14 @@
 class Solution:
     def isValidBST(self, root: Optional[TreeNode]) -> bool:
         ans = []
+        self.found = True
         def traverse(node):
             if not node:
                 return
             traverse(node.left)
+            if ans and node.val <= ans[-1]:
+                self.found = False
             ans.append(node.val)
             traverse(node.right)
         traverse(root)
-        for i in range(len(ans) - 1):
-            if ans[i] >= ans[i + 1]:
-                return False
-        return True
+        return self.found
