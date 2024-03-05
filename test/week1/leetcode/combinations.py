@@ -6,10 +6,15 @@ class Solution:
         def backtrack(idx):
             if len(path) == k:
                 ans.append(path[:])
+                return
+            if idx > n:
+                return
+            
+            path.append(idx)
+            backtrack(idx + 1)
+            path.pop()
 
-            for i in range(idx, n + 1):
-                path.append(i)
-                backtrack(i + 1)
-                path.pop()
+            backtrack(idx + 1)
+
         backtrack(1)
         return ans
