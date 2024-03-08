@@ -18,5 +18,5 @@ def check(value):
     return l
 
 for coin in coins:
-    val = check(coin)
-    print(val)
+    value = check(coin)
+    print(value)
